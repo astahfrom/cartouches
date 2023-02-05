@@ -11,7 +11,7 @@ This produces a number of `.tex`-files, typically in `./output/document/`.
 
 This tool converts those LaTeX files into a single file containing more manageable snippets.
 
-See the `index.html` file for more information.
+See the `index.html` file or [astahfrom.github.io/cartouches](https://astahfrom.github.io/cartouches/) for more information.
 
 Command Line Usage
 ------------------
@@ -38,3 +38,5 @@ wasm-pack build --target web
 ```
 
 See `index.html` for the integration with HTML.
+
+The tool is deployed at [astahfrom.github.io/cartouches](https://astahfrom.github.io/cartouches/).
