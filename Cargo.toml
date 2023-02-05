@@ -1,0 +1,21 @@
+[package]
+name = "cartouches"
+version = "0.1.0"
+authors = ["Asta Halkjær From <andro.from@gmail.com>"]
+license = "MIT"
+edition = "2021"
+description = """
+Parses Isabelle LaTeX output into manageable snippets.
+"""
+
+[[bin]]
+name = "cartouches"
+path = "src/main.rs"
+
+[lib]
+name = "cartouches"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.84"
