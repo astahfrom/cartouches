@@ -207,7 +207,7 @@
   \newcount\i
   \i=0
   \loop
-    \GetSnip{#1-\the\i}
+    \GetSnip{#1-\the\i}%
     \advance \i 1
   \ifcsname snippet--#1-\the\i\endcsname
   \repeat
@@ -221,7 +221,7 @@
     \ifnum \i=#2
       \renewcommand{\isanewline}{}%
     \fi
-    \GetSnip{#3-\the\i}
+    \GetSnip{#3-\the\i}%
     \advance \i 1
     \ifnum \i>#2 {}
     \else \repeat
