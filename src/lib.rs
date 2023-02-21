@@ -482,21 +482,16 @@ fn line_chunk(chars: &[char]) -> Vec<String> {
     // Ignore markup commands
     let markup = String::from("\\isamarkup");
     let markupfalse = String::from("\\isamarkupfalse");
-    // Text commands can sit in the middle of proofs so we just make sure to get a separate line for these
-    let begin_text = String::from("\\begin{isamarkuptext}");
     let end_text = String::from("\\end{isamarkuptext}");
     for line in filtered_lines {
-        if line.contains(&nl) || line.contains(&end_text) {
+        if line.contains(&nl) {
             chunk.push(line);
             res.push(chunk.concat());
             chunk.clear();
-        } else if line.contains(&begin_text) {
-            if !chunk.is_empty() {
-                res.push(chunk.concat());
-                chunk.clear();
-            }
-            chunk.push(line);
-        } else if line.contains(&markup) && !line.contains(&markupfalse) {
+        } else if line.contains(&markup)
+            && !line.contains(&markupfalse)
+            && !line.contains(&end_text)
+        {
             break;
         } else {
             chunk.push(line);
@@ -618,7 +613,15 @@ pub fn extract_snippets(s: String, theory: String) -> String {
 
     // Newline at the end
     snippets.push(String::new());
-    snippets.join("%\n")
+    // Text commands can appear anywhere and we cannot in general tell whether they belong to the end of one snippet or the beginning of another.
+    // We assume they belong to the end and put them in a custom command, so they can be easily toggled on and off
+    let joined = snippets.join("%\n");
+    joined
+        .replace(
+            "\\begin{isamarkuptext}",
+            "\\SNIPTEXT{\\begin{isamarkuptext}",
+        )
+        .replace("\\end{isamarkuptext}", "\\end{isamarkuptext}}")
 }
 
 #[wasm_bindgen(start)]
