@@ -7,6 +7,7 @@ edition = "2021"
 description = """
 Parses Isabelle LaTeX output into manageable snippets.
 """
+repository = "https://github.com/astahfrom/cartouches"
 
 [[bin]]
 name = "cartouches"
