@@ -6,7 +6,7 @@ Parses Isabelle LaTeX output into manageable snippets.
 Setup
 -----
 
-I assume you have build a PDF document of your LaTeX files with `isabelle`.
+I assume you have built a PDF document of your LaTeX files with `isabelle`.
 This produces a number of `.tex`-files, typically in `./output/document/`.
 
 This tool converts those LaTeX files into a single file containing more manageable snippets.
