@@ -209,7 +209,7 @@ fn is_outer_cmd(key: &str) -> bool {
     COMMANDS.binary_search(&key).is_ok()
 }
 
-const ISACOMMAND: &str = "isacommand";
+const ISACOMMAND: &str = "isakeywordONE";
 const ISAOPEN: &str = "isacartoucheopen";
 const ISACLOSE: &str = "isacartoucheclose";
 const ISANEWLINE: &str = "isanewline";
@@ -576,7 +576,7 @@ pub fn extract_snippets(s: String, theory: String) -> String {
 
         let suffix = used_names.entry(raw_id.clone()).or_insert(0);
         let id = if *suffix > 0 {
-            escape_underscores(&format!("{}-{}", &raw_id, suffix))
+            escape_underscores(&format!("{}+{}", &raw_id, suffix))
         } else {
             escape_underscores(&raw_id)
         };

@@ -138,7 +138,7 @@
     <h2>Required LaTeX</h2>
     <p>
         The tool generates a number of <code>\SNIP{name}{body}</code> commands where the names have the following shape:
-    <pre>[Theory:]cmd:name[-no]-line[-cartouche]</pre>
+    <pre>[Theory:]cmd:name[+no]-line[-cartouche]</pre>
     <ul>
         <li><code>theory</code> is added when snippets are generated for more than one theory.</li>
         <li><code>cmd</code> corresponds to the Isabelle command, e.g. "lemma" or "definition".</li>
@@ -283,7 +283,8 @@ end
 
     <h2>Disclaimer</h2>
     <p>
-        This tool was built for Isabelle 2022 and may not support the LaTeX output of other versions.
+        This tool only works for Isabelle 2025 (and potentially later revisions).
+        Use the previous version at <a href="https://astahfrom.github.io/cartouches_old/">cartouches_old</a> for Isabelle 2024 and below.
         The processing of the LaTeX is ad hoc and may result in unexpected behaviour, especially regarding the names of
         snippets.
     </p>

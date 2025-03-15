@@ -1,9 +1,9 @@
 [package]
 name = "cartouches"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Asta Halkjær From <andro.from@gmail.com>"]
 license = "MIT"
-edition = "2021"
+edition = "2024"
 description = """
 Parses Isabelle LaTeX output into manageable snippets.
 """
@@ -19,4 +19,4 @@ path = "src/lib.rs"
 crate-type = ["cdylib"]
 
 [dependencies]
-wasm-bindgen = "0.2.84"
+wasm-bindgen = "0.2.100"
