@@ -342,6 +342,11 @@ fn chunk_theory(chars: &[char]) -> Vec<Vec<char>> {
         i = k + 1;
     }
 
+    if let Some(k) = read_until_cmd(&chars, i, "end", Some(|s| s == "isabellebody")) {
+        let chunk = Vec::from(&chars[i - 1..k - 1]);
+        res.push(chunk);
+    }
+
     res
 }
 
